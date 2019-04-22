@@ -87,7 +87,7 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
     //O(N)
     public int indexOf(E value) {
         for (int i = 0; i < size(); i++) {
-            if ( data[i].equals(value) )
+            if (data[i].equals(value))
                 return i;
         }
         return -1;
@@ -127,7 +127,7 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
     public void sortBubble() {
         for (int i = 0; i < currentSize - 1; i++) {
             for (int j = 0; j < currentSize - 1 - i; j++) {
-                if ( data[j].compareTo(data[j + 1]) > 0 ) {
+                if (data[j].compareTo(data[j + 1]) > 0) {
                     swap(j, j + 1);
                 }
             }
@@ -139,12 +139,14 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
         for (int i = 0; i < currentSize - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < currentSize; j++) {
-                if ( data[j].compareTo(data[minIndex]) < 0 ) {
+                if (data[j].compareTo(data[minIndex]) < 0) {
                     minIndex = j;
                 }
             }
 
-            swap(i, minIndex);
+            if (i != minIndex) {
+                swap(i, minIndex);
+            }
         }
     }
 
